@@ -7,7 +7,12 @@
       <div class="card-body">
         <h5 class="card-title">{{ room.number }}</h5>
         <h6 class="card-subtitle mb-2 text-muted">Host: {{ room.hostname }}</h6>
-        <a href="#" class="card-link btn btn-sm btn-primary auto">Join</a>
+        <a
+          href="#"
+          class="card-link btn btn-sm btn-primary auto"
+          @click="joinRoom(room.number)"
+          >Join</a
+        >
       </div>
     </div>
   </div>
@@ -21,6 +26,11 @@ export default {
     return {
       namaRoom: "ini room",
     };
+  },
+  methods: {
+    joinRoom(roomNumber) {
+      this.$store.dispatch("joinRoom", { room: roomNumber });
+    },
   },
 };
 </script>
