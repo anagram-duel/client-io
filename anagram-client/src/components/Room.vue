@@ -1,0 +1,38 @@
+<template>
+	<!-- <b-card class="room" title="" sub-title="creator">
+		<b-link href="#" class="card-link">Join</b-link>
+	</b-card> -->
+	<div>
+		<div class="room">
+			<div class="card-body">
+				<h5 class="card-title">Card title</h5>
+				<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+				<a href="#" class="card-link btn btn-sm btn-primary auto">Join</a>
+			</div>
+		</div>
+	</div>
+</template>
+
+<script>
+export default {
+	name: 'Rooms',
+	data() {
+		return {
+			namaRoom: 'ini room',
+		};
+	},
+};
+</script>
+
+<style>
+.room {
+	width: 18rem;
+	margin: 5px 0px;
+	background: linear-gradient(
+		to right bottom,
+		rgba(255, 255, 255, 0.7),
+		rgba(255, 255, 255, 0.3)
+	);
+	border-radius: 1rem;
+}
+</style>

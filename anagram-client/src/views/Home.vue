@@ -38,7 +38,6 @@ export default {
 #home {
 	height: 100vh;
 	width: 100vw;
-	color: #90b4dc;
 }
 .height {
 	height: 100%;
