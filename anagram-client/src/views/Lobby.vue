@@ -35,7 +35,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 main {
 	min-height: 100vh;
 	background: linear-gradient(to right top, #65dfc9, #6cdbeb);
