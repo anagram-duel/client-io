@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import Lobby from '../views/Lobby.vue';
 import ActionPhase from '../views/ActionPhase.vue';
+import store from '../store';
 
 Vue.use(VueRouter);
 
@@ -38,6 +39,13 @@ const router = new VueRouter({
 	mode: 'history',
 	base: process.env.BASE_URL,
 	routes,
+});
+
+router.beforeEach((to, from, next) => {
+	if (to.name !== 'Home' && !store.state.playername) {
+		next({ name: 'Home' });
+	}
+	next();
 });
 
 export default router;
