@@ -5,12 +5,9 @@
 			<p>
 				1. Buat atau join room yang tersedia.<br />
 				2. Permainan hanya bisa dimulai oleh Room Master.<br />
-				3. Ketika permainan dimulai, kamu akan diberikan huruf acak.<br />
-				4. Tebaklah hewan apa dari huruf-huruf tersebut.<br />
-				5. Untuk menang kamu harus bisa menebak dan mengirim jawaban lebih cepat
-				dari lawanmu.<br />
-				6. Permainan akan berakhir ketika salah seorang berhasil mengirimkan
-				jawaban yang benar.
+				3. Kamu akan diberikan huruf dari nama hewan secara acak untuk
+				bermain.<br />
+				4. Pemenangnya adalah yang dapat menebak dengan benar lebih dulu.<br />
 			</p>
 		</div>
 	</div>
@@ -33,7 +30,9 @@ export default {
 }
 .how-to p {
 	margin: 10px 0;
+	padding: 0px 5px;
 	color: #6c757d;
+	text-align: center;
 }
 .how-title {
 	font-size: 20px;
