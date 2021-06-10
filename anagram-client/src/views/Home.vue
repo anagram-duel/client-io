@@ -53,9 +53,8 @@ export default {
 
 <style scoped>
 #home {
-  height: 100vh;
-  width: 100vw;
-  color: #90b4dc;
+	height: 100vh;
+	width: 100vw;
 }
 .height {
   height: 100%;
