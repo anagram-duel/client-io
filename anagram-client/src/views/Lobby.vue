@@ -23,6 +23,16 @@
 						:room="room"
 					></Room>
 				</div>
+				<div class="empty-room" v-if="!this.$store.state.rooms.length">
+					<b-icon
+						icon="exclamation-circle"
+						style="width: 50; height: 50px"
+						class="mb-3"
+						font-scale="3"
+						animation="throb"
+					></b-icon>
+					<h1>No Room Available...</h1>
+				</div>
 			</div>
 		</section>
 	</main>
@@ -33,27 +43,27 @@ import HowTo from '../components/HowTo.vue';
 import Room from '../components/Room.vue';
 
 export default {
-  name: "Lobby",
-  components: {
-    HowTo,
-    Room,
-  },
-  methods: {
-    createRoom() {
-      this.$socket.emit("createRoom", this.$store.state.playername);
-    },
-  },
-  mounted() {
-    this.$socket.on("roomsRefresh", (payload) => {
-      this.$store.dispatch("setRooms", payload);
-    });
-    this.$socket.on("roomCreated", (payload) => {
-      // console.log(payload);
-      this.$store.dispatch("setRoomNumber", payload);
-      this.$router.push({ name: "ActionPhase" });
-    });
-    this.$socket.emit("roomsFetch");
-  },
+	name: 'Lobby',
+	components: {
+		HowTo,
+		Room,
+	},
+	methods: {
+		createRoom() {
+			this.$socket.emit('createRoom', this.$store.state.playername);
+		},
+	},
+	mounted() {
+		this.$socket.on('roomsRefresh', (payload) => {
+			this.$store.dispatch('setRooms', payload);
+		});
+		this.$socket.on('roomCreated', (payload) => {
+			// console.log(payload);
+			this.$store.dispatch('setRoomNumber', payload);
+			this.$router.push({ name: 'ActionPhase' });
+		});
+		this.$socket.emit('roomsFetch');
+	},
 };
 </script>
 
@@ -112,5 +122,12 @@ h1 {
 	flex-wrap: wrap;
 	overflow: auto;
 	margin: 10px;
+}
+.empty-room {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
 }
 </style>
