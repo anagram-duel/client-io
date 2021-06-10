@@ -7,7 +7,7 @@
 				2. Permainan hanya bisa dimulai oleh Room Master.<br />
 				3. Kamu akan diberikan huruf dari nama hewan secara acak untuk
 				bermain.<br />
-				4. Pemenangnya adalah yang dapat menebak dengan benar lebih dulu.
+				4. Pemenangnya adalah yang dapat menebak dengan benar lebih dulu.<br />
 			</p>
 		</div>
 	</div>
