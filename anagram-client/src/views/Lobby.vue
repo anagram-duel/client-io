@@ -33,22 +33,27 @@ import HowTo from '../components/HowTo.vue';
 import Room from '../components/Room.vue';
 
 export default {
-	name: 'Lobby',
-	components: {
-		HowTo,
-		Room,
-	},
-	methods: {
-		createRoom() {
-			this.$socket.emit('createRoom', this.$store.state.playername);
-		},
-	},
-	mounted() {
-		this.$socket.on('roomsRefresh', (payload) => {
-			this.$store.dispatch('setRooms', payload);
-		});
-		this.$socket.emit('roomsFetch');
-	},
+  name: "Lobby",
+  components: {
+    HowTo,
+    Room,
+  },
+  methods: {
+    createRoom() {
+      this.$socket.emit("createRoom", this.$store.state.playername);
+    },
+  },
+  mounted() {
+    this.$socket.on("roomsRefresh", (payload) => {
+      this.$store.dispatch("setRooms", payload);
+    });
+    this.$socket.on("roomCreated", (payload) => {
+      // console.log(payload);
+      this.$store.dispatch("setRoomNumber", payload);
+      this.$router.push({ name: "ActionPhase" });
+    });
+    this.$socket.emit("roomsFetch");
+  },
 };
 </script>
 
