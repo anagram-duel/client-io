@@ -23,6 +23,16 @@
             :room="room"
           ></Room>
         </div>
+        <div class="empty-room" v-if="!this.$store.state.rooms.length">
+          <b-icon
+            icon="exclamation-circle"
+            style="width: 50; height: 50px"
+            class="mb-3"
+            font-scale="3"
+            animation="throb"
+          ></b-icon>
+          <h1>No Room Available...</h1>
+        </div>
       </div>
     </section>
   </main>
@@ -118,5 +128,12 @@ h1 {
   flex-wrap: wrap;
   overflow: auto;
   margin: 10px;
+}
+.empty-room {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 </style>
