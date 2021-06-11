@@ -8,6 +8,7 @@
 					href="#"
 					class="card-link btn btn-sm btn-primary auto"
 					@click="joinRoom(room.number)"
+					v-if="room.available"
 					>Join</a
 				>
 			</div>
@@ -18,12 +19,7 @@
 <script>
 export default {
 	props: ['room'],
-	name: 'Rooms',
-	data() {
-		return {
-			namaRoom: 'ini room',
-		};
-	},
+	name: 'Room',
 	methods: {
 		joinRoom(roomNumber) {
 			this.$store.dispatch('joinRoom', { room: roomNumber });
