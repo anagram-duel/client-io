@@ -65,7 +65,7 @@ export default {
     this.$socket.emit("roomsFetch");
   },
   beforeDestroy() {
-    this.$socket.off("roomsRefresh");
+    // this.$socket.off("roomsRefresh");
     this.$socket.off("roomCreated");
   },
 };
