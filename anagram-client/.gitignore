@@ -25,3 +25,8 @@ firebase-debug.*.log*
 *.njsproj
 *.sln
 *.sw?
+
+# Firebase
+.firebase*
+firebase*
+
