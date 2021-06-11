@@ -57,16 +57,10 @@ export default {
     this.$socket.on("roomsRefresh", (payload) => {
       this.$store.dispatch("setRooms", payload);
     });
-    this.$socket.on("roomDetailRefresh", (payload) => {
-      this.$store.dispatch("setRoom", payload);
-    });
     this.$socket.on("roomCreated", (payload) => {
       this.$store.dispatch("setRoomNumber", payload.number);
       this.$store.dispatch("setRoom", payload);
       this.$router.push({ name: "ActionPhase" });
-    });
-    this.$socket.on("roomDetailRefresh", (payload) => {
-      console.log(payload);
     });
     this.$socket.emit("roomsFetch");
   },
