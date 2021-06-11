@@ -47,6 +47,9 @@ export default new Vuex.Store({
 		setRoom(context, payload) {
 			context.commit("SET_ROOM", payload);
 		},
+		clearRoom(context) {
+			context.commit("SET_ROOM", null);
+		},
 		joinRoom(context, payload) {
 			socket.emit("joinRoom", {
 				toJoin: payload.room,
