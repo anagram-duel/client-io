@@ -5,8 +5,8 @@
         <div class="user">
           <h1>Players</h1>
           <div class="players">
-            <h5>Host player</h5>
-            <h5>Challenger</h5>
+            <h5>Host player: {{ this.$store.state.room.hostname }}</h5>
+            <h5>Challenger: {{ this.$store.state.room.challenger }}</h5>
           </div>
         </div>
       </div>
@@ -19,7 +19,7 @@
 					<h1>Waiting host to start...</h1>
 				</div> -->
         <div class="play">
-          <h1>{{ scrambleWord }}</h1>
+          <h1>{{ this.$store.state.room.scrambleWord }}</h1>
           <input type="text" class="answer" />
         </div>
       </div>
@@ -36,11 +36,13 @@ export default {
       scrambleWord: "Kijang",
     };
   },
+
   mounted() {
     this.$socket.on("roomDetailRefresh", (payload) => {
       console.log(payload);
     });
     this.$socket.emit("getRoom", this.$store.state.roomNumber);
+    // this.$socket.emit("getRoom", this.$store.state.roomNumber);
   },
 };
 </script>

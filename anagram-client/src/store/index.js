@@ -12,6 +12,7 @@ export default new Vuex.Store({
 		hostname: "",
 		roomNumber: "",
 		rooms: [],
+		room: null,
 	},
 	mutations: {
 		SET_PLAYERNAME(state, payload) {
@@ -29,6 +30,9 @@ export default new Vuex.Store({
 		SET_HOSTNAME(state, payload) {
 			state.hostname = payload;
 		},
+		SET_ROOM(state, payload) {
+			state.room = payload;
+		},
 	},
 	actions: {
 		setPlayerName(context, payload) {
@@ -39,6 +43,9 @@ export default new Vuex.Store({
 		},
 		setRoomNumber(context, payload) {
 			context.commit("SET_ROOM_NUMBER", payload);
+		},
+		setRoom(context, payload) {
+			context.commit("SET_ROOM", payload);
 		},
 		joinRoom(context, payload) {
 			socket.emit("joinRoom", {
