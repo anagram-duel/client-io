@@ -20,7 +20,8 @@
 				</div> -->
         <div class="play">
           <h1>{{ this.$store.state.room.scrambleWord }}</h1>
-          <input type="text" class="answer" />
+          <input type="text" class="answer" v-model="answer" />
+          <button @click="submitAnswer">Submit</button>
         </div>
       </div>
     </section>
@@ -34,15 +35,26 @@ export default {
     return {
       isHost: false,
       scrambleWord: "Kijang",
+      answer: "",
     };
+  },
+  methods: {
+    submitAnswer() {
+      this.$socket.emit("submitAnswer", {
+        answer: this.answer,
+        room: this.$store.state.room.number,
+      });
+    },
   },
 
   mounted() {
     this.$socket.on("roomDetailRefresh", (payload) => {
+      this.$store.dispatch("setRoom", payload);
+    });
+    this.$socket.on("gameCheck", (payload) => {
       console.log(payload);
     });
     this.$socket.emit("getRoom", this.$store.state.roomNumber);
-    // this.$socket.emit("getRoom", this.$store.state.roomNumber);
   },
 };
 </script>
