@@ -7,7 +7,7 @@
         <a
           href="#"
           class="card-link btn btn-sm btn-primary auto"
-          @click="joinRoom(room.number)"
+          @click.prevent="joinRoom(room.number)"
           v-if="room.available"
           >Join</a
         >
